@@ -10,12 +10,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.axel.antibiogointerview.databinding.FragmentSecondBinding;
+import com.axel.antibiogointerview.databinding.ImageFragmentBinding;
 import com.axel.antibiogointerview.viewmodel.MyViewModel;
 
-public class SecondFragment extends Fragment {
+public class ImageRotationFragment extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private ImageFragmentBinding binding;
     private MyViewModel viewModel;
 
     @Override
@@ -24,7 +24,7 @@ public class SecondFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = ImageFragmentBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -35,13 +35,11 @@ public class SecondFragment extends Fragment {
         binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
+                NavHostFragment.findNavController(ImageRotationFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
             }
         });
-        binding.imageView3.setRotationX(viewModel.getAngle());
-        binding.imageView3.setRotation(viewModel.getAngle());
-        binding.imageView3.setRotationY(viewModel.getAngle());
+        binding.rotatedImage.setRotation(viewModel.getAngle());
     }
 
     @Override

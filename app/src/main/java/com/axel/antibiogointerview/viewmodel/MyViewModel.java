@@ -2,7 +2,8 @@ package com.axel.antibiogointerview.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
-public class MyViewModel extends ViewModel {
+
+public class MyViewModel extends ViewModel  {
 
 
         private String phrase;
@@ -21,7 +22,7 @@ public class MyViewModel extends ViewModel {
             if (value != null ) phrase = value;
         }
         public void setAngle(int value) {
-            angle=value%360;
+            angle=value;
         }
 
         public boolean isPhraseValid(){

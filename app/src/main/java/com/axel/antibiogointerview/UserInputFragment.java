@@ -12,12 +12,12 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.axel.antibiogointerview.databinding.FragmentFirstBinding;
+import com.axel.antibiogointerview.databinding.InputFragmentBinding;
 import com.axel.antibiogointerview.viewmodel.MyViewModel;
 
-public class FirstFragment extends Fragment {
+public class UserInputFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private InputFragmentBinding binding;
     private MyViewModel viewModel;
 
     @Override
@@ -26,7 +26,7 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+        binding = InputFragmentBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -37,10 +37,12 @@ public class FirstFragment extends Fragment {
         binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
+                NavHostFragment.findNavController(UserInputFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
+        binding.uppercaseTxtEdit.setText(viewModel.getPhrase());
+
         binding.uppercaseTxtEdit.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -90,7 +92,6 @@ public class FirstFragment extends Fragment {
         });
 
         binding.editTextNumber.setText(""+viewModel.getAngle());
-        binding.uppercaseTxtEdit.setText(viewModel.getPhrase());
 
 
     }
