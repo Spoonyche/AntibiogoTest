@@ -6,41 +6,40 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 public class MyViewModelTest {
     private MyViewModel vm = new MyViewModel();
+
     @Test
     public void test_string_validaion() {
-        vm.setPhrase("aa");
+        vm.setSentence("aa");
         //should not be working
-        assertNotEquals(true,vm.isPhraseValid());
+        assertNotEquals(true,vm.isSentenceValid());
 
-        vm.setPhrase(null);
-        assertNotEquals(true,vm.isPhraseValid());
+        vm.setSentence(null);
+        assertNotEquals(true,vm.isSentenceValid());
 
-        vm.setPhrase("111A");
-        assertNotEquals(true,vm.isPhraseValid());
+        vm.setSentence("111A");
+        assertNotEquals(true,vm.isSentenceValid());
 
-        vm.setPhrase(" A111A");
-        assertNotEquals(true,vm.isPhraseValid());
+        vm.setSentence(" A111A");
+        assertNotEquals(true,vm.isSentenceValid());
 
-        vm.setPhrase("@A111A");
-        assertNotEquals(true,vm.isPhraseValid());
+        vm.setSentence("@A111A");
+        assertNotEquals(true,vm.isSentenceValid());
 
-        vm.setPhrase("Bien");
-        assertEquals(true,vm.isPhraseValid());
-
-
-
+        vm.setSentence("Bien");
+        assertEquals(true,vm.isSentenceValid());
     }
 
     @Test
     public void test_setter_phrase(){
-        assertEquals(vm.getPhrase(),"");
-        vm.setPhrase("test1");
-        assertEquals(vm.getPhrase(),"test1");
-        vm.setPhrase(null);
-        assertNotEquals(vm.getPhrase(),null);
-        assertEquals(vm.getPhrase(),"test1");
+        assertEquals(vm.getSentence(),"");
+        vm.setSentence("test1");
+        assertEquals(vm.getSentence(),"test1");
+        vm.setSentence(null);
+        assertNotEquals(vm.getSentence(),null);
+        assertEquals(vm.getSentence(),"test1");
     }
 
+    @Test
     public void test_setter_angle(){
         assertEquals(vm.getAngle(),0);
 

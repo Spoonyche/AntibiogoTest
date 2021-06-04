@@ -41,7 +41,9 @@ public class UserInputFragment extends Fragment {
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
-        binding.uppercaseTxtEdit.setText(viewModel.getPhrase());
+        binding.uppercaseTxtEdit.setText(viewModel.getSentence());
+        binding.editTextNumber.setText(""+viewModel.getAngle());
+
 
         binding.uppercaseTxtEdit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -56,15 +58,12 @@ public class UserInputFragment extends Fragment {
 
             @Override
             public void afterTextChanged(Editable s) {
-                viewModel.setPhrase(s.toString());
-                if (viewModel.isPhraseValid()){
-                    binding.editTextNumber.setVisibility(View.VISIBLE);
-                    binding.buttonFirst.setVisibility(View.VISIBLE);
-                }else{
-                    binding.uppercaseTxtLayout.setError("Make sure the firs letter is Uppercase");
-                    binding.editTextNumber.setVisibility(View.INVISIBLE);
-                    binding.buttonFirst.setVisibility(View.INVISIBLE);
-                }
+                viewModel.setSentence(s.toString());
+                setVisibility(viewModel.isSentenceValid());
+                if(viewModel.isSentenceValid() || s.length()==0)
+                    binding.uppercaseTxtLayout.setError("");
+                else
+                    binding.uppercaseTxtLayout.setError("Make sure the first letter is Uppercase");
             }
         });
         binding.editTextNumber.addTextChangedListener(new TextWatcher() {
@@ -91,9 +90,13 @@ public class UserInputFragment extends Fragment {
             }
         });
 
-        binding.editTextNumber.setText(""+viewModel.getAngle());
-
-
+    }
+    // set the visibility of the different element
+    // shoul be done with binding but cannot make it work
+    private void setVisibility(boolean isVisible){
+        binding.editTextNumber.setVisibility(isVisible?View.VISIBLE:View.INVISIBLE);
+        binding.buttonFirst.setVisibility(isVisible?View.VISIBLE:View.INVISIBLE);
+        binding.anglelabel.setVisibility(isVisible?View.VISIBLE:View.INVISIBLE);
     }
 
 

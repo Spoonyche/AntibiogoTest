@@ -20,16 +20,19 @@
 
     <EditText
         android:id="@+id/editTextNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="179dp"
+        android:layout_height="42dp"
         android:ems="10"
+        android:hint="Enter Angle"
         android:inputType="number"
+        android:maxLength="3"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:visibility="invisible" />
+
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/uppercaseTxtLayout"
@@ -44,6 +47,18 @@
             android:id="@+id/uppercaseTxtEdit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Enter phrase " />
+            android:hint="Enter Text " />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/anglelabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Angle"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="invisible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

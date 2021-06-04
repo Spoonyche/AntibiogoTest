@@ -6,33 +6,37 @@ import androidx.lifecycle.ViewModel;
 public class MyViewModel extends ViewModel  {
 
 
-        private String phrase;
+        private String sentence;
 
         private int angle;
 
-        public String getPhrase() {
-            return phrase;
+        public String getSentence() {
+            return sentence;
         }
 
         public int getAngle() {
             return angle;
         }
 
-        public void setPhrase(String value) {
-            if (value != null ) phrase = value;
+        public void setSentence(String value) {
+
+            if (value != null )
+                sentence = value;
         }
+
         public void setAngle(int value) {
+
             angle=value;
         }
 
-        public boolean isPhraseValid(){
-            if(phrase.trim().length()==0)
+        public boolean isSentenceValid(){
+            if(sentence.trim().length()==0)
                 return false;
-            return Character.isUpperCase(phrase.charAt(0));
+            return Character.isUpperCase(sentence.charAt(0));
         }
 
         public  MyViewModel(){
-            this.phrase = "";
+            this.sentence = "";
             this.angle=0;
         }
 
