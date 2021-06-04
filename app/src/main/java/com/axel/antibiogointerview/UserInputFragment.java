@@ -41,8 +41,7 @@ public class UserInputFragment extends Fragment {
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
-        binding.uppercaseTxtEdit.setText(viewModel.getSentence());
-        binding.editTextNumber.setText(""+viewModel.getAngle());
+
 
 
         binding.uppercaseTxtEdit.addTextChangedListener(new TextWatcher() {
@@ -89,6 +88,9 @@ public class UserInputFragment extends Fragment {
                 }
             }
         });
+
+        binding.uppercaseTxtEdit.setText(viewModel.getSentence());
+        binding.editTextNumber.setText(""+viewModel.getAngle());
 
     }
     // set the visibility of the different element

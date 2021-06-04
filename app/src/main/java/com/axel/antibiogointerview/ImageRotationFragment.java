@@ -13,6 +13,8 @@ import androidx.navigation.fragment.NavHostFragment;
 import com.axel.antibiogointerview.databinding.ImageFragmentBinding;
 import com.axel.antibiogointerview.viewmodel.MyViewModel;
 
+import java.text.MessageFormat;
+
 public class ImageRotationFragment extends Fragment {
 
     private ImageFragmentBinding binding;
@@ -40,6 +42,7 @@ public class ImageRotationFragment extends Fragment {
             }
         });
         binding.rotatedImage.setRotation(viewModel.getAngle());
+        binding.LabelPageImage.setText(String.format("the image is rotated by %d degree", viewModel.getAngle()));
     }
 
     @Override
